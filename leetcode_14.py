@@ -17,20 +17,13 @@ from typing import List
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
 
+        strs = sorted(strs)
         pref = strs[0]
-        # for i in range(len(pref), 0, -1):
-        #     print(pref[:i])
         result = ""
-
-        # for i in strs:
-        #     for j in strs:
-        #         if len(i) > len(j):
-
-
 
         for i in strs:
             count = len(i)
-            while pref in i or pref != "":
+            while not i.startswith(pref) or pref != "":
                 if pref in i:
                     result = pref
                     break
@@ -43,7 +36,7 @@ class Solution:
 
 sol = Solution()
 
-strs = ["ab", "a"]
+strs = ["reflower", "flow", "flight"]
 
 print(sol.longestCommonPrefix(strs))
 
